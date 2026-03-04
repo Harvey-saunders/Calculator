@@ -11,6 +11,11 @@ public class Calculation {
         value = converter(decimal);
     }
 
+    public Calculation(String op, ArrayList<Boolean> val){
+        operator = op;
+        value = val;
+    }
+
     public String getOperator(){
         return operator;
     }
