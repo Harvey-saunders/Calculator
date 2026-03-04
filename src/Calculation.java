@@ -36,6 +36,10 @@ public class Calculation {
         }
         return binary;
     }
+
+    public void printValues(){
+        System.out.println(getOperator() + " " + getValue());
+    }
 }
     
     
