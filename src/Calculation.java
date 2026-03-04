@@ -24,7 +24,8 @@ public class Calculation {
         int decimal = Integer.parseInt(decimalStr);
         
         int max;
-        for(max = 1; max < decimal; max *= 2){}
+        for(max = 1; max <= decimal; max *= 2){}
+        max /= 2;
         for(int y = max; y > 0; y /= 2){
             if(decimal >= y){
                 decimal -= y;
