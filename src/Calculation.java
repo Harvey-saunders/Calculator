@@ -45,6 +45,16 @@ public class Calculation {
     public void printValues(){
         System.out.println(getOperator() + " " + getValue());
     }
+
+    public void printDecimal(){
+        int decimal = 0;
+        int binary = 1;
+        for(int x = value.size() - 1; x >= 0; x--){
+            if(value.get(x)){
+                decimal += binary;
+            }binary *= 2;
+        }System.out.println(decimal);
+    }
 }
     
     
