@@ -32,7 +32,9 @@ public class TextInput {
                         split.add(new Calculation("add", holder));
                         holder = "";
                         break;
-                
+                    case "-":
+                        split.add(new Calculation("sub", holder));
+                        break;
                     default:
                         System.out.println("Invalid format");
                         break;
