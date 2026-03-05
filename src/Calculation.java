@@ -58,7 +58,7 @@ public class Calculation {
     public void printDecimal(){
         int decimal = 0;
         int binary = 1;
-        for(int x = value.size() - 1; x >= 0; x--){
+        for(int x = 0; x <value.size(); x++){
             if(value.get(x)){
                 decimal += binary;
             }binary *= 2;
