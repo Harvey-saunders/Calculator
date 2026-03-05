@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Calculator {
     
     private static TextInput reader;
-    private static Adder adder;
+    private static Opertations op;
 
     public static void main(String[] args) {
         
@@ -17,7 +17,7 @@ public class Calculator {
             Calculation calc = calList.get(x);
             switch (holder.getOperator()) {
                 case "add":
-                    holder = new Calculation(calc.getOperator(), adder.adding(holder.getValue(), calc.getValue()));
+                    holder = new Calculation(calc.getOperator(), op.adding(holder.getValue(), calc.getValue()));
                     holder.printValues();
                     holder.printDecimal();
                     break;
@@ -31,7 +31,7 @@ public class Calculator {
 
     private static void startUp(){
         reader = new TextInput();
-        adder = new Adder();
+        op = new Opertations();
     }
 
 }

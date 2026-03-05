@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-public class Adder {
+public class Opertations {
 
     public boolean carry;
     private ArrayList<Boolean> larger;
     private ArrayList<Boolean> smaller;
     private int sizeDiff;
 
-    public Adder(){
+    public Opertations(){
         carry = false;
         sizeDiff = 0;
     }
