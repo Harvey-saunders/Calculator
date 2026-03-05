@@ -2,30 +2,54 @@ import java.util.ArrayList;
 
 public class Adder {
 
-    private boolean carry;
+    public boolean carry;
+    private ArrayList<Boolean> larger;
+    private ArrayList<Boolean> smaller;
+    private int sizeDiff;
 
     public Adder(){
         carry = false;
+        sizeDiff = 0;
     }
 
-    public ArrayList<Boolean> add(ArrayList<Boolean> a, ArrayList<Boolean> b){
+    public ArrayList<Boolean> adding(ArrayList<Boolean> a, ArrayList<Boolean> b){
         ArrayList<Boolean> output = new ArrayList<>();
         carry = false;
-        for(int x = 0; x < a.size(); x++){
-            output.add(fullAdder(a.get(x), b.get(x)));
-        }if(carry){
+
+        findBiggest(a, b);
+
+        for(int x = 0; x < sizeDiff; x++){
+            output.add(larger.get(x));
+        }for(int x = 0; x < smaller.size(); x++){
+            output.add(fullAdder(larger.get(x + sizeDiff), smaller.get(x)));
+        }
+        if(carry){
             output.add(carry);
         }
+
+
         return output;
     }
 
-    private boolean fullAdder(boolean a, boolean b){
-        carry = (a && b) || (carry && xor(a, b));
-        return xor(carry, xor(a, b));
+    public boolean fullAdder(boolean a, boolean b){
+        boolean output = xor(carry, xor(a, b));
+        boolean carryholder = carry;
+        carry = (a && b) || (carryholder && xor(a, b));
+        return output;
     }
 
     private boolean xor(boolean a, boolean b){
         return (a || b) && !(a && b);
+    }
+
+    private void findBiggest(ArrayList<Boolean> a, ArrayList<Boolean> b){
+        if(a.size() > b.size()){
+            larger = a;
+            smaller = b;
+        }else{
+            larger = b;
+            smaller = a;
+        }sizeDiff = larger.size() - smaller.size();
     }
 
 }
