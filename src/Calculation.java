@@ -29,6 +29,7 @@ public class Calculation {
     }
 
     private ArrayList<Boolean> converter(String decimalStr){
+        ArrayList<Boolean> binaryFlipped = new ArrayList<>();
         ArrayList<Boolean> binary = new ArrayList<>();
         int decimal = Integer.parseInt(decimalStr);
         
@@ -38,11 +39,15 @@ public class Calculation {
         for(int y = max; y > 0; y /= 2){
             if(decimal >= y){
                 decimal -= y;
-                binary.add(true);
+                binaryFlipped.add(true);
             }else{
-                binary.add(false);
+                binaryFlipped.add(false);
             }
         }
+        for(int x = binaryFlipped.size() - 1; x >=0; x--){
+            binary.add(binaryFlipped.get(x));
+        }
+
         return binary;
     }
 
