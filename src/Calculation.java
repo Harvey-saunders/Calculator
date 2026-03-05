@@ -24,6 +24,10 @@ public class Calculation {
         return value;
     }
 
+    public int getSize(){
+        return value.size();
+    }
+
     private ArrayList<Boolean> converter(String decimalStr){
         ArrayList<Boolean> binary = new ArrayList<>();
         int decimal = Integer.parseInt(decimalStr);
